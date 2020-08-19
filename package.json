@@ -2,7 +2,7 @@
   "name": "react-material",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://dassram17.github.io/react-admin/",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
