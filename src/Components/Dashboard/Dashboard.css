@@ -1,0 +1,122 @@
+.profileCardImg{
+    width:128px;
+    height:128px;
+    border-radius:50%;
+    box-shadow:0 0px 5px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:16px auto;
+    background:rgba(0,0,0,0.03);
+    padding:10px;
+}
+
+.countSpan{
+    font-weight:bold;
+    font-size:20px;
+    display:block;
+}
+
+
+.dashCard{
+    font-size:16px;
+    margin-bottom:32px;
+    position:relative;
+    z-index:99;
+}
+
+.dashCard::after {
+    content: '';
+    background: #fff;
+    position: absolute;
+    top: 0;
+    height: 98px;
+    width: 94%;
+    z-index: 0;
+    /* transform: scale(0.96); */
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.03);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    box-shadow: 0 0 2px rgba(0,0,0,0.1);
+    transform:scale(1) translate(0, 10px);
+    opacity:1;
+    transition: all 0.2s 0s ease;
+}
+
+.dashCard::before {
+    content: '';
+    background: #fff;
+    position: absolute;
+    top: 7px;
+    height: 96px;
+    width: 86%;
+    z-index: 0;
+    /* transform: scale(0.96); */
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.03);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    box-shadow: 0 0 2px rgba(0,0,0,0.1);
+    transform:scale(1)  translate(0, 20px);
+    opacity:1;
+    transition: all 0.2s 0s ease;;
+}
+
+.dashCard:hover::before{
+    transform:scale(1)  translate(0, 4px);
+    xopacity:0;
+    transition:all 0.2s 0s ease;
+}
+.dashCard:hover::after{
+    transform:scale(1)  translate(0, 2px);
+    xopacity:0;
+    transition:all 0.2s 0s ease;
+}
+
+.dashCard .card-body{
+    color:#fff;
+    height:96px;
+    position:relative;
+    z-index:3;
+    border-radius:8px;
+    padding:0 16px;
+}
+.dashIcon {
+    position: absolute;
+    left: 24px;
+    top: 0;
+    height: 64px;
+    bottom: 0;
+    font-size: 3em;
+    color: #fff;
+    margin: auto 0;
+}
+.dashCount {
+    font-size: 2em;
+    text-align: center;
+    line-height: 1;
+    margin: 0;
+}
+.dashLabel{
+    font-size: 1em;
+    text-align: right;
+    color:#fff;
+    margin:0;
+    white-space: nowrap;
+    width:100%;
+}
+
+.dashCountCont{
+    padding-bottom:10px;
+}
+
+.counterInside{
+    display:flex;
+    flex-flow: column;
+    height:96px;
+    align-items: center;
+    justify-content: center;
+}
