@@ -1,0 +1,27 @@
+.loginCont{
+    background:#f4f7f6;
+}
+.loginCard{
+    background:Red !important;
+}
+
+.loginLeftBox{
+    min-height:500px;
+    width:30%;
+    background:url(../../assets/images/login-side.png) no-repeat left center/100% 100% #fff;
+    margin-left:-24px;
+    display:flex;
+    flex-flow:column;
+    align-items: center;
+    justify-content: center;
+    padding:0 96px;
+    text-align:center;
+}
+.toonImg{
+    width:70%;
+}
+.loginFormBox{
+    min-height:500px;
+    width:60%;
+    text-align:center;
+}

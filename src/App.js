@@ -1,119 +1,37 @@
-import React, { useState } from 'react';
-import { Route } from 'react-router';
-import { BrowserRouter } from 'react-router-dom';
-
-import { AppBar, Toolbar, IconButton,Typography, Box } from '@material-ui/core';
-
-
-import DrawerLayout from './ui/DrawerLayout/DrawerLayout';
-import {ThemeProvider, makeStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
-
-import theme from './ui/Theme/Theme';
-
-import Aux from './Auxiliary/Auxiliary';
-import { menuList, drawerWidth, getIcon } from './constants';
-import SimpleLineIcon from 'react-simple-line-icons';
+import React from 'react';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+//import { withSnackbar } from 'material-ui-snackbar-redux';
 
 import './App.css';
-import Dashboard from './Components/Dashboard/Dashboard';
-import Patients from './Components/Patients/Patients';
+import Login from './pages/Login/Login';
+import Layout from './Layout/Layout';
+import Dashboard from './pages/Dashboard/Dashboard';
+import Patients from './pages/Patients/Patients';
+import Forms from './pages/Forms/Forms';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-    maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
-  },
-  nested: {
-    paddingLeft: theme.spacing(4),
-  },
-  navWidth: {
-      width:drawerWidth
-  },
-  mainCont: {
-    marginLeft:'64px',
-    transition: theme.transitions.create('margin-left', {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  drawerhover: {
-      width:'64px',
-      transition: theme.transitions.create('width', {
-          easing: theme.transitions.easing.sharp,
-          duration: theme.transitions.duration.enteringScreen,
-      }),
-    /* "&:hover": {
-      width: drawerWidth,
-      mainCont:{
-        width: '240px'
-      }
-    }, */
-  },
-}));
 
-function App() {
-  const classes = useStyles();
+function App(props) {
+  //let history = useHistory();
+  //console.log('Auth : '+localStorage.getItem('auth'))
+  //console.log(props);
+  let isAuth = localStorage.getItem('auth');
+  
 
-  let mini = true;
-
-  const [hoverState, setHoverState] = useState({
-      hover: false
-  })
-
-  const toggleHover = () => {
-    if(mini){
-        document.getElementById('sideMenu').style.width = '240px';
-        document.getElementById('mainCont').style.marginLeft = '240px';
-        
-        mini=false;
-    }else{
-        document.getElementById('sideMenu').style.width = '64px';
-        document.getElementById('mainCont').style.marginLeft = '64px';
-        mini=true;
-    }
-    
-    /* setHoverState({hover: !hoverState.hover})
-    setSelectedIndex('') */
-}
+  
 
   return (
       <BrowserRouter>
-        <ThemeProvider theme={theme}>
-          <AppBar color="grey" position="fixed" style={{zIndex: theme.zIndex.drawer + 1,}} elevation={0}>
-            <Toolbar>
-              {/* <IconButton aria-label="menu" style={{color:theme.palette.primary.contrastText}}>
-                <MenuIcon />
-              </IconButton> */}
-              <Box display="flex" flexDirection="row" justifyContent="space-between" style={{width:'100%'}}>
-                <Typography variant="h6" noWrap>
-                  LOGO
-                </Typography>
-                <Box component="div">
-                  <IconButton>
-                    <SimpleLineIcon name="bell" />
-                  </IconButton>
-                  <IconButton>
-                    <SimpleLineIcon name="settings" />
-                  </IconButton>
-                  <IconButton>
-                    <SimpleLineIcon name="logout" />
-                  </IconButton>
-                </Box>
-              </Box>
-              
-            </Toolbar>
-          </AppBar>
-          <Toolbar />
-          <DrawerLayout hoverClass={classes.drawerhover} elId="sideMenu" onHover={toggleHover} />
-          <main className={classes.mainCont} id="mainCont">
-            <Route path="/" exact component={Dashboard} />
-            <Route path="/patients" component={Patients} />
-          </main>
-          
-        </ThemeProvider>
-        
+        <Switch>
+          <Route path="/" exact render={() => (!isAuth ? <Redirect to="/login" /> : <Redirect to="/admin/dashboard" />)} />
+          <Route path="/admin" exact render={() => (!isAuth ? <Redirect to="/login" /> : <Redirect to="/admin/dashboard" />)} />
+          <Route path='/login' component={Login} />
+          <Route path='/admin' exact component={Layout} />
+          <Layout>
+            <Route path='/admin/dashboard' component={Dashboard} />
+            <Route path='/admin/patients' component={Patients} />
+            <Route path='/admin/forms' component={Forms} />
+          </Layout>
+        </Switch>
       </BrowserRouter>
   );
 }

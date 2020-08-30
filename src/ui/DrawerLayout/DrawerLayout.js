@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Router,Link, NavLink  } from 'react-router-dom'
+import React from 'react';
+import { NavLink  } from 'react-router-dom'
 
 import { Toolbar, Drawer, List, ListItem, ListItemIcon, ListItemText, Divider, Collapse } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 
-import { menuList, drawerWidth, getIcon } from '../../constants';
+import { menuList, drawerWidth } from '../../constants';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -61,15 +61,15 @@ const DrawerLayout = (props) => {
    
 
     return(
-        <Drawer open="true" variant="permanent" onMouseEnter={props.onHover} onMouseLeave={props.onHover}>
+        <Drawer open variant="permanent" onMouseEnter={props.onMouseOver} onMouseLeave={props.onMouseLeave}>
             <Toolbar />
 
             <List component="nav" className={props.hoverClass} id={props.elId}/*  className={classes.navWidth} */>
             {
                 menuList.map((menu, index) => (
                     (menu.submenu.length > 0)?
-                        <React.Fragment>
-                            <ListItem key={menu.name} button onClick={() => handleClick(index)}>
+                        <React.Fragment key={menu.key}>
+                            <ListItem key={menu.key} button onClick={() => handleClick(index)}>
                                 {/* <ListItemIcon>{getIcon(menu.icon)}</ListItemIcon> */}
                                 <ListItemIcon><i className={menu.icon}></i></ListItemIcon>
                                 <ListItemText primary={menu.name} />
@@ -79,7 +79,7 @@ const DrawerLayout = (props) => {
                                 <List component="div" disablePadding>
                                     {
                                         menu.submenu.map((m, i) => (
-                                            <ListItem key={m.name} button className={classes.nested} component={NavLink} to={m.route}>
+                                            <ListItem key={m.key} button className={classes.nested} component={NavLink} to={m.route}>
                                                 {/* <ListItemIcon>
                                                     {getIcon(m.icon)}
                                                 </ListItemIcon> */}
@@ -92,16 +92,17 @@ const DrawerLayout = (props) => {
                             <Divider />
                         </React.Fragment> 
                     :
-                        <React.Fragment>
+                        <React.Fragment key={menu.key}>
                             {
-                                (menu.route == '/')?
-                                    <ListItem button key={menu.name} className={classes.navLink} component={NavLink} to={menu.route} exact  activeClassName={classes.active+' active'}>
-                                        <ListItemIcon><i className={menu.icon+' navLinkIcon'} style={{fontSize:'24px'}}></i></ListItemIcon>
+                                (menu.route === '/')?
+                                    <ListItem button key={menu.key} className={classes.navLink} component={NavLink} to={menu.route} exact  activeClassName={classes.active+' active'}>
+                                        <ListItemIcon>{menu.icon}</ListItemIcon>
+                                        
                                         <ListItemText primary={menu.name} style={{whiteSpace:'nowrap'}} />
                                     </ListItem>
                                 :
-                                    <ListItem button key={menu.name} className={classes.navLink} component={NavLink} to={menu.route} activeClassName={classes.active+' active'}>
-                                        <ListItemIcon><i className={menu.icon+' navLinkIcon'}></i></ListItemIcon>
+                                    <ListItem button key={menu.key} className={classes.navLink} component={NavLink} to={menu.route} activeClassName={classes.active+' active'}>
+                                        <ListItemIcon>{menu.icon}</ListItemIcon>
                                         <ListItemText primary={menu.name} style={{whiteSpace:'nowrap'}} />
                                     </ListItem>
                             }

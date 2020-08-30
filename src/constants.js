@@ -1,35 +1,45 @@
 import React from 'react';
 
-import HomeIcon from '@material-ui/icons/Home';
-import ScheduleIcon from '@material-ui/icons/Schedule';
-import ContactsIcon from '@material-ui/icons/Contacts';
-import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
-import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
-import FileCopyIcon from '@material-ui/icons/FileCopy';
-import PaymentIcon from '@material-ui/icons/Payment';
-import AccountTreeIcon from '@material-ui/icons/AccountTree';
+import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
+import AirlineSeatIndividualSuiteOutlinedIcon from '@material-ui/icons/AirlineSeatIndividualSuiteOutlined';
+import DateRangeOutlinedIcon from '@material-ui/icons/DateRangeOutlined';
+import GroupWorkOutlinedIcon from '@material-ui/icons/GroupWorkOutlined';
+import FlipOutlinedIcon from '@material-ui/icons/FlipOutlined';
+import LocalPharmacyOutlinedIcon from '@material-ui/icons/LocalPharmacyOutlined';
+import AssignmentIndOutlinedIcon from '@material-ui/icons/AssignmentIndOutlined';
+import MeetingRoomOutlinedIcon from '@material-ui/icons/MeetingRoomOutlined';
+import ReceiptOutlinedIcon from '@material-ui/icons/ReceiptOutlined';
+import PersonPinOutlinedIcon from '@material-ui/icons/PersonPinOutlined';
+import VerticalSplitOutlinedIcon from '@material-ui/icons/VerticalSplitOutlined';
 
 export const base_url = "";
 export const drawerWidth = '240px';
 
 export const getIcon = (icon) => {
     switch(icon) {
-        case 'HomeIcon':
-            return (<i className="ico icon-home"></i>);
-        case 'ContactsIcon':
-            return (<i className="ico icon-patient"></i>);
-        case 'PlaylistAddCheckIcon':
-            return (<PlaylistAddCheckIcon/>);
-        case 'PeopleAltIcon':
-            return (<PeopleAltIcon/>);
-        case 'ScheduleIcon':
-            return (<ScheduleIcon/>);
-        case 'FileCopyIcon':
-            return (<FileCopyIcon/>);
-        case 'PaymentIcon':
-            return (<PaymentIcon/>);
-        case 'AccountTreeIcon':
-            return (<AccountTreeIcon/>);
+        case 'home':
+            //return (<i className="ico icon-home"></i>);
+            return <HomeOutlinedIcon/>;
+        case 'patients':
+            return (<AirlineSeatIndividualSuiteOutlinedIcon/>);
+        case 'appointments':
+            return (<DateRangeOutlinedIcon/>);
+        case 'laboratory':
+            return (<GroupWorkOutlinedIcon/>);
+        case 'radiology':
+            return (<FlipOutlinedIcon/>);
+        case 'pharmacy':
+            return (<LocalPharmacyOutlinedIcon/>);
+        case 'pool':
+            return (<MeetingRoomOutlinedIcon/>);
+        case 'ward':
+            return (<AssignmentIndOutlinedIcon/>);
+        case 'billing':
+            return (<ReceiptOutlinedIcon/>);
+        case 'staff':
+            return (<PersonPinOutlinedIcon/>);
+        case 'forms':
+            return (<VerticalSplitOutlinedIcon/>);
       default:
         return ('');
     }
@@ -42,44 +52,44 @@ export const menuList = [
     {
         key: 'dashboard',
         name: 'Dashboard',
-        route: '/',
-        icon: 'icon-home',
+        route: '/admin/dashboard',
+        icon: getIcon('home'),//'icon-home',
         divider: false,
         submenu: []
     },
     {
         key: 'patients',
         name: 'Patients',
-        route: '/patients',
-        icon: 'ico icon-patient',
+        route: '/admin/patients',
+        icon: getIcon('patients'),//'ico icon-patient',
         divider: false,
         submenu: []
     },
     {
         key: 'appointments',
         name: 'Appointments',
-        route: '/appointments',
-        icon: 'ico icon-appointment',
+        route: '/admin/appointments',
+        icon: getIcon('appointments'),//'ico icon-appointment',
         divider: true,
         submenu: []
     },
     {
         key: 'laboratory',
         name: 'Laboratory',
-        route: '/laboratory',
-        icon: 'ico icon-laboratory',
+        route: '/admin/laboratory',
+        icon: getIcon('laboratory'),//'ico icon-laboratory',
         divider: false,
         submenu: []/* [
             {
                 key: 'allappointments',
                 name: 'All Appointments',
-                route: '/appointments/all',
+                route: '/admin/appointments/all',
                 icon: 'PlaylistAddCheckIcon'
             },
             {
                 key: 'addappointments',
                 name: 'Add Appointments',
-                route: '/appointments/add',
+                route: '/admin/appointments/add',
                 icon: 'PlaylistAddCheckIcon'
             },
         ] */
@@ -87,48 +97,56 @@ export const menuList = [
     {
         key: 'radiology',
         name: 'Radiology',
-        route: '/radiology',
-        icon: 'ico icon-x-ray',
+        route: '/admin/radiology',
+        icon: getIcon('radiology'),//'ico icon-x-ray',
         divider: false,
         submenu: []
     },
     {
         key: 'pharmacy',
         name: 'Pharmacy',
-        route: '/pharmacy',
-        icon: 'ico icon-medicine',
+        route: '/admin/pharmacy',
+        icon: getIcon('pharmacy'),//'ico icon-medicine',
         divider: true,
         submenu: []
     },
     {
         key: 'patient-pool',
         name: 'Patient pool',
-        route: '/patient-pool',
-        icon: 'ico icon-data-collection',
+        route: '/admin/patient-pool',
+        icon: getIcon('pool'),//'ico icon-data-collection',
         divider: false,
         submenu: []
     },
     {
         key: 'ward',
         name: 'Ward management',
-        route: '/ward',
-        icon: 'ico icon-hospital',
+        route: '/admin/ward',
+        icon: getIcon('ward'),//'ico icon-hospital',
         divider: false,
         submenu: []
     },
     {
         key: 'billing',
         name: 'Billing management',
-        route: '/billing',
-        icon: 'ico icon-invoice',
+        route: '/admin/billing',
+        icon: getIcon('billing'),//'ico icon-invoice',
         divider: true,
         submenu: []
     },
     {
         key: 'staff',
         name: 'Staff management',
-        route: '/staff',
-        icon: 'ico icon-id-card',
+        route: '/admin/staff',
+        icon: getIcon('staff'),//'ico icon-id-card',
+        divider: false,
+        submenu: []
+    },
+    {
+        key: 'forms',
+        name: 'Forms',
+        route: '/admin/forms',
+        icon: getIcon('forms'),//'ico icon-id-card',
         divider: false,
         submenu: []
     },
