@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/react-admin/static/css/main.386cb54e.chunk.css",
+    "main.js": "/react-admin/static/js/main.dd9e80aa.chunk.js",
+    "main.js.map": "/react-admin/static/js/main.dd9e80aa.chunk.js.map",
+    "runtime-main.js": "/react-admin/static/js/runtime-main.9a5ddb83.js",
+    "runtime-main.js.map": "/react-admin/static/js/runtime-main.9a5ddb83.js.map",
+    "static/css/2.30fbf3a2.chunk.css": "/react-admin/static/css/2.30fbf3a2.chunk.css",
+    "static/js/2.7b96f255.chunk.js": "/react-admin/static/js/2.7b96f255.chunk.js",
+    "static/js/2.7b96f255.chunk.js.map": "/react-admin/static/js/2.7b96f255.chunk.js.map",
+    "index.html": "/react-admin/index.html",
+    "precache-manifest.dc607fe156f9e77203cc0bb887ec95e5.js": "/react-admin/precache-manifest.dc607fe156f9e77203cc0bb887ec95e5.js",
+    "service-worker.js": "/react-admin/service-worker.js",
+    "static/css/2.30fbf3a2.chunk.css.map": "/react-admin/static/css/2.30fbf3a2.chunk.css.map",
+    "static/css/main.386cb54e.chunk.css.map": "/react-admin/static/css/main.386cb54e.chunk.css.map",
+    "static/js/2.7b96f255.chunk.js.LICENSE.txt": "/react-admin/static/js/2.7b96f255.chunk.js.LICENSE.txt",
+    "static/media/simple-line-icons.css": "/react-admin/static/media/Simple-Line-Icons.f33df365.eot",
+    "static/media/doctor_toon.png": "/react-admin/static/media/doctor_toon.04a9f166.png",
+    "static/media/Login.css": "/react-admin/static/media/login-side.3d4fcbd3.png",
+    "static/media/logo.svg": "/react-admin/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9a5ddb83.js",
+    "static/css/2.30fbf3a2.chunk.css",
+    "static/js/2.7b96f255.chunk.js",
+    "static/css/main.386cb54e.chunk.css",
+    "static/js/main.dd9e80aa.chunk.js"
+  ]
+}
